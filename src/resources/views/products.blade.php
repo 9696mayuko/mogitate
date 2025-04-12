@@ -4,9 +4,8 @@
 <link rel="stylesheet" href="{{ asset('css/products.css') }}">
 @endsection
 
-@section('content')
+@section('product')
 <div class=""
 
 
 
-f

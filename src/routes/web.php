@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductsController;
-use App\Models\Products;
+use App\Http\Controllers\SeasonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +15,11 @@ use App\Models\Products;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/',[ProductsController::class, 'index']);
+Route::get('/products', [ ProductsController::class,'getProducts']);
+Route::get('/products/register',[SeasonController::class,'getRegister']);
+Route::post('/products/upload',[ProductsController::class,'upload']);
+Route::get('/products/detail/{product_id}',[ProductsController::class,'getDetail']);
+Route::get('/products/search', [ProductsController::class, 'getSearch']);
+Route::post('/products/search', [ProductsController::class, 'postSearch']);
+Route::get('/products/{product_id}/delete', [ProductsController::class, 'postDelete']);
+Route::post('/products/update', [ProductsController::class, 'postUpdate']);
